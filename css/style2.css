@@ -1,0 +1,263 @@
+body {
+    width: 100%;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 300px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#container-master .header_nav {
+    position: absolute;
+    top: 1em;
+    right: 50px;
+    color: white;
+    background: #032C56;
+    z-index: 1;
+}
+
+.navbar{
+    position: relative;
+}
+.menu {
+    margin: 0;
+    padding-left: 0;
+}
+a:visited{
+    color:white;
+}
+.menu li {
+    margin: 0 10px 0 0;
+    padding: 10px;
+    font-weight: bold;
+  
+}
+.menu li a{
+    color:white;
+}
+.menu li a:visited{
+    color:white;
+}
+.menu {
+    margin: 0;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.menu li {
+    margin: 0 5px 0 0;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#container-master{
+    width:100%;
+    height:100vh;
+    position: relative;
+    
+}
+
+#container-left{
+width:50%;
+height:100%;
+background-color:#032C56;
+float:left;
+color:white;
+}
+
+#container-right{
+width:50%;
+height:100%;
+float:left;
+}
+
+#menu-contact{
+    color: #FF7417;
+}
+footer{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    color:white;
+    font-size:.8em;
+}
+footer a:visited{
+color:white;
+}
+
+footer a:link{
+    color:white;
+
+}
+#social-media2{
+    color:white;
+    font-size:3em;
+    margin-bottom:20px;
+}
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+  #chevron {
+      display:none;
+      color:white;
+  }
+  #social-media{
+      display:none;
+      color:white;
+  }
+  #joke{
+    display:none;
+}
+
+#jackblack{
+    background-image: url("../img/me.jpg");
+    display:none;
+    width:100%;
+    height:300px;
+    background-size:cover;
+}
+@media  (max-width:815px) {
+
+    #container-master .header_nav {
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 1;
+    }
+    #container-master h1 {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #container-master{
+        height:1600px;
+    }
+    #container-left{
+        height:800px;
+        width:100%;
+
+    }
+    #container-right{
+        height:672px;
+        width:100%;
+    }
+    footer{
+        color:black;
+        width:100%;
+        text-align: center;
+    }
+    #chevron {
+        position: absolute;
+        display:block;
+        font-size:3em;
+        bottom:120px;
+        width: 100%;
+        text-align: center;
+
+        
+    }
+    #social-media{
+        display:block;
+        position:absolute;
+        bottom:200px;
+        width:100%;
+        text-align:center;
+    }
+    #social-media a:link{
+        color:white;
+        font-size:3em;
+    }
+    #social-media2{
+        display:none;
+    }
+    #space{
+        display:none;
+    }
+    #joke{
+        display:block;
+    }
+    #jackblack{
+        display:block;
+    }
+}
+
+@media  (max-height:800px) {
+    #container-master{
+        height:900px;
+    }
+    #container-left{
+        height:900px;
+        width:50%;
+
+    }
+    #container-right{
+        height:900px;
+        width:50%;
+    }
+    #chevron {
+        display:none;
+    }
+    #social-media{
+        display:none;
+    }
+    #jackblack{
+        display:none;
+    }
+}
+
+@media  (max-height:800px) and (max-width:815px) {
+    #container-master{
+        height:1600px;
+    }
+    #container-left{
+        height:800px;
+        width:100%;
+
+    }
+    #container-right{
+        height:672px;
+        width:100%;
+}
+#chevron {
+    position: absolute;
+    display:block;
+    font-size:3em;
+    bottom:120px;
+    width: 100%;
+    text-align: center;
+
+}
+#social-media{
+    display:block;
+    position:absolute;
+    bottom:200px;
+    width:100%;
+    text-align:center;
+}
+#social-media a:link{
+    color:white;
+    font-size:3em;   
+}
+
+#social-media2{
+    display:none;
+}
+#jackblack{
+    display:block;
+}
+}

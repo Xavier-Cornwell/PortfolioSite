@@ -1,0 +1,77 @@
+/* your styles go here */
+.header2{
+    height:100vh;
+}
+.navbar{
+
+    background-color:rgba(255,0,0,0);
+    border:0;
+    color:white;
+}
+
+.navbar .navbar-nav a.nav-link{
+    color:white;
+}
+
+.btn{
+
+    border-radius:50px !important;
+}
+span{
+    color:#4BFFA5;
+}
+
+h1{
+    font-size:76px;
+}
+
+.hero p{
+    font-size:52px;
+}
+
+.hero .btn{
+    font-size:32px;
+    color:black;
+
+}
+.hero{
+   margin-top:50px;
+}
+.slogan{
+    font-size:46px;
+}
+
+.container{
+    max-width: 90%;
+    margin:0 auto;
+}
+
+.divider h2{
+    font-size:60px;
+    margin-bottom:50px;
+
+}
+
+.check{
+    font-size:36px;
+    padding-bottom:20px;
+}
+
+.intro{
+    margin-top:25vh;
+}
+
+.aboutme{
+    margin-top:30vh;
+    height:450px;
+    width:700px;
+}
+
+.btn-primary{
+    background-color:white !important;
+    color:black !important;
+}
+
+section .hero .continue{
+    color:black !important;
+}

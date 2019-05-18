@@ -1,0 +1,94 @@
+#container-left{
+    position: relative;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    background-color:#5CDB95;
+}
+#container-right{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+#contact h1{
+    align-self:flex-start;
+    text-align:center;
+    font-size:2.5em;
+    padding-bottom:20px;
+    padding-left:20px;
+    margin:0 auto;
+    margin-top:10px;
+}
+#contact h2{
+    font-size:1.3em;
+    padding-bottom:10px;
+    padding-left:20px;
+}
+#contact a{
+    color:#032C56;
+    padding-bottom:5px;
+    padding-left:20px;
+    font-size:1.4em;
+}
+#button{
+    display:flex;
+    align-self:flex-end;
+    text-align:center;
+    width:250px;
+    margin:0 auto;
+    height:2.2em;
+    background-color:#FF7417;
+    justify-content:center;
+    align-items:center;
+    margin-top:40px;
+    margin-bottom:15px;
+
+}
+.highlight{
+    color:#FF7417;
+}
+#contact p{
+    justify-content:center;
+    margin:0 auto;
+    font-size:1.3em;
+    padding-bottom:10px;
+    padding-left:20px;
+
+}
+
+#contact{
+    max-width:380px;
+    min-width:max-content;
+    background-color: #032C56;
+}
+
+#social-media2 a:link{
+    color:#032C56;
+}
+footer{
+   color: #032C56;
+}
+#space1{
+    padding-bottom:30px;
+}
+@media (min-width: 300px) and (max-width:808px) {
+    #contact{
+        max-width:300px;
+}
+
+#contact h2{
+font-size:1.15em;
+}
+#contact p{
+    font-size:1.15em;
+
+}
+
+}
+
+@media  (max-width:808px) {
+    #social-media{
+        bottom:100px;
+    }
+}
