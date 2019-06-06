@@ -122,11 +122,18 @@ section .hero .continue{
     color:black !important;
 }
 
-<<<<<<< HEAD
 .right{
     width:100%;
 }
-=======
 
 
->>>>>>> b673e43fc66e84af98811c38783c700c2f876c7a
+.head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.how-section1 img{
+    max-height:300px;
+
+}
