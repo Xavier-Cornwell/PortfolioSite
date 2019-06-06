@@ -470,12 +470,13 @@ div[class*="-btn"] {
 
 .navbar .navbar-toggler {
   margin-top: 5px;
+  color: rgba(255, 255, 255, 0.99);
 }
 
 .navbar .navbar-toggler span {
   width: 20px;
   height: 2px;
-  background: #222;
+  background: white;
   margin-bottom: 4px;
   display: block;
 }
