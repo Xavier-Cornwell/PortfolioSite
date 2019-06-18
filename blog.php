@@ -1,3 +1,4 @@
+<?php require_once('inc/mysqli_connect.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -84,7 +85,6 @@
 $result = $db->query($sql);  
 
 while ($row = $result->fetch_assoc()) {
-$row = $result->fetch_assoc()) 
 $id= $row['id'];
 $summary=$row['project'];
 $date= $row['date'];
@@ -94,39 +94,46 @@ $date= $row['date'];
        //img query
        $img = "SELECT *
         FROM img
-         WHERE blog_id = $id LIMIT 1"; 
+         WHERE blog_id = '$id' LIMIT 1"; 
         
         //header query
         $header = "SELECT *
         FROM header
-         WHERE blog_id = $id LIMIT 1";         
-                  
+         WHERE blog_id = '$id' LIMIT 1";  
+         
 
                   
-$imgResult = $db->query($img); 
-$headerResult = $db->query($img); 
-$row = $imgResult->fetch_assoc();
+
+  //resaults for the blog                
+  $imgResult = $db->query($img); 
+  $headerResult = $db->query($header); 
+  $row = $imgResult->fetch_assoc();
    $img=$row['img_path'];
-
-   $row = $headerResult->fetch_assoc()
+  
+   $row = $headerResult->fetch_assoc();
    $header=$row['header'];
+  
 
 ?>
           <div class="row ">
             <div class="card pt-3 col-md-6 text-white  mt-5" style="background-color:#27272D; margin:0 auto; ">
-              <div class="post-thumbnail" ><a href="post.html"><img src="img/<?php echo $img;?>" alt="..." class="img-fluid" style="max-height: 800px;"></a></div>
+              <div class="post-thumbnail" ><a href="post.php?blog=<?php echo $id;?>"><img src="img/<?php echo $img;?>" alt="..." class="img-fluid" style="max-height: 800px;"></a></div>
               <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">
                   <div class="date"><?php echo $date;?></div>
-                </div><a href="post.html">
+                </div><a href="post.php?blog=<?php echo $id;?>">
                   <h3 class="h4 text-white"><?php echo $header;?></h3></a>
                 <p class="text-white"><?php echo $summary;?></p>
               </div>
             </div>
-          </div>
-      </section>
+          
+      
+  <?php
+} 
+?>   
+</div>
+ </section>
     
-  <?php} ?>    
     <!-- Page Footer-->
     <footer class="main-footer mt-5"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
       <nav class="navbar navbar-expand-lg">
@@ -155,9 +162,9 @@ $row = $imgResult->fetch_assoc();
           <!-- Navbar Menu -->
           <div id="navbarcollapse" class="collapse navbar-collapse justify-content-center">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link  ">Home</a>
+              <li class="nav-item"><a href="index.php" class="nav-link  ">Home</a>
               </li>
-              <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
+              <li class="nav-item"><a href="blog.php" class="nav-link ">Blog</a>
               </li>
               <li class="nav-item"><a href="about.html" class="nav-link ">Contact</a>
               </li>

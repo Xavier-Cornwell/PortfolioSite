@@ -1,3 +1,4 @@
+<?php require_once('inc/mysqli_connect.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,13 +33,14 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  <body>
+  <body style="background-color:#e3e7ea;">
     <header class="header header3"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center; height:500px;">
       <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg">
           <div class="search-area">
             <div class="search-area-inner d-flex align-items-center justify-content-center">
-              <div class="close-btn"><i class="icon-close"></i></div>
+              <div class="close-btn"> 
+                <i class="icon-close"></i></div>
               <div class="row d-flex justify-content-center">
                 <div class="col-md-8">
                 </div>
@@ -47,36 +49,41 @@
           </div>
           <?php 
   
-  $id=$_GET['id'];
+  $id=$_GET['blog'];
+  // echo $id;
     //blog post query
     $sql = "SELECT *
     FROM blog
-     WHERE id = $id";
+     WHERE id = '$id'";
 
+$result = $db->query($sql);   
        //img query
        $img = "SELECT *
         FROM img
-         WHERE blog_id = $id LIMIT 5"; 
+         WHERE blog_id = '$id' LIMIT 6"; 
         
         //header query
         $header = "SELECT *
         FROM header
-         WHERE blog_id = $id LIMIT 5";         
-                  
-$result = $db->query($sql);  
-                  
-$imgResult = $db->query($img); 
-$headerResult = $db->query($img); 
+         WHERE blog_id = '$id' LIMIT 6";  
+         
 
-   $row = $result->fetch_assoc()) 
-   $project=$row['project'];
-   $goals = $row['goals'];
-   $challenge= $row['challenge'];
-   $learned =$row['learned'];
-   $changes =  $row['changes'];
+         $row = $result->fetch_assoc() ;
+         $project=$row['project'];
+         $goals = $row['goals'];
+         $challenge= $row['challenge'];
+         $learned =$row['learned'];
+         $changes =  $row['changes'];
+         $thought=$row['thought'];       
+
+  //resaults for the blog                
+  $imgResult = $db->query($img); 
+  $headerResult = $db->query($header); 
+
+  
    
-   $img[];
-   $header[];
+   $img=[];
+   $header=[];
    while ($row = $imgResult->fetch_assoc()) {
           
     array_push($img, $row['img_path']);
@@ -85,6 +92,8 @@ $headerResult = $db->query($img);
           
     array_push($header, $row['header']);
    }
+  //  var_dump($img);
+  //  var_dump($header);
 ?>
 
 
@@ -109,11 +118,11 @@ $headerResult = $db->query($img);
           </div>
         </nav>
      
-        <div class="ml-5 d-flex h-50 align-items-center" style="font-size:82; color:white;"><h1>Diversity in <span>Engineering</span></h1></div>
+        <div class="ml-5 d-flex h-50 align-items-center" style="font-size:82; color:white;"><h1>The  <span>Project</span></h1></div>
 
     </header>
-    <div class="arrow d-flex justify-content-center mt-5 " style="display:inline-block; color:white;">
-        <a href="#scroll" class=""><i style="font-size:50px; width:100%;" class="fa fa-arrow-down "></i></a>
+    <div class="arrow d-flex justify-content-center mt-5 " style="display:inline-block; ">
+    <a href="#scroll" class=""><i style="font-size:50px; width:100%;" class="fa fa-arrow-down "></i></a>
       </div>
 
     <div class="container d-flex justify-content-center">
@@ -128,63 +137,77 @@ $headerResult = $db->query($img);
 
                  <div class="how-section1">
             <div class="row pb-5 mt-5 sect " style="border-bottom:solid 2px black;">
-                <div class="col-md-6 how-img">
-                    <img src="img/<?php echo $img[0];?>" class=" col-9 img-fluid" alt=""/>
-                    <h4 class="col-9"><?php echo $header[0];?></h4>
-                    <p class="text-muted col-9"><?php echo $project;?></p>
+            <div><h1 class="topHead col-lg-6 col-md-12  align-items-center  head">The Project</h1></div> 
+                <div class="col-lg-6 col-md-12  how-img">
+                    <img src="img/<?php echo $img[0];?>" class=" col-lg-9 col-md-12 img-fluid pt-3" alt=""/>
+                    <h4 class="col-lg-9 col-md-12 pt-3"><?php echo $header[0];?></h4>
+                    <p class="text-muted col-lg-9 col-md-12"><?php echo $project;?></p>
                 </div>
-                <div class="col-md-6 align-items-center head">
+                <div class="col-lg-6 col-md-12  align-items-center head">
                   
-                     <h1>The Project</h1>      
+                     <h1 class="bottomHead">The Project</h1>      
                 </div>
             </div>
             <div class="row pb-5 mt-5 sect" style="border-bottom:solid 2px black;">
-                <div class="col-md-6 align-items-center  head">
+                <div class="col-lg-6 col-md-12    head">
                  <h1>Goals</h1>
                 </div>
-                <div class="col-md-6 how-img" >
+                <div class="col-lg-6 col-md-12  how-img" >
           
-                    <img src="img/<?php echo $img[1];?>" class="col-9 img-fluid" alt=""/>
-                    <h4 class="col-9"><?php echo $header[1];?></h4>
+                    <img src="img/<?php echo $img[1];?>" class="col-lg-9 col-md-12 img-fluid pt-3" alt=""/>
+                    <h4 class="col-lg-9 col-md-12 pt-3"><?php echo $header[1];?></h4>
                           
-                                <p class="text-muted col-9 "><?php echo $goals;?></p>
+                                <p class="text-muted col-lg-9 col-md-12 "><?php echo $goals;?></p>
                 </div>
             </div>
             <div class="row mt-5 pb-5 sect" style="border-bottom:solid 2px black;" >
-                <div class="col-md-6 how-img">
-                     <img src="img/<?php echo $img[2];?>" class="col-9 img-fluid" alt=""/>
+            <div ><h1 class="topHead col-lg-6 col-md-12  align-items-center  head" >Challenges</h1></div> 
+                <div class="col-lg-6 col-md-12  how-img">
+                     <img src="img/<?php echo $img[2];?>" class="col-lg-9 col-md-12 img-fluid pt-3" alt=""/>
                      
-                     <h4 class="subheading col-9"><?php echo $header[2];?></h4>
-                     <p class="text-muted col-9"><?php echo $challenge;?></p>
+                     <h4 class="subheading col-lg-9 col-md-12 pt-3 "><?php echo $header[2];?></h4>
+                     <p class="text-muted col-lg-9 col-md-12"><?php echo $challenge;?></p>
                 </div>
-                <div class="col-md-6 align-items-center head">
-                  <h1>Challenges</h1>
+                <div class="col-lg-6 col-md-12  align-items-center head">
+                  <h1 class="bottomHead">Challenges</h1>
                 </div>
             </div>
             <div class="row mt-5 pb-5 sect" style="border-bottom:solid 2px black;">
-                <div class="col-md-6 align-items-center head">
-                   <h1>Lessons Learned</h1>
+                <div class="col-lg-6 col-md-12   align-items-center head">
+                <div><h1 class=" col-lg-6 col-md-12  align-items-center  head">Lessons Learned</h1></div> 
                 </div>
-                <div class="col-md-6 pb-5 how-img">
-                    <img src="img/<?php echo $img[3];?>" class="col-9 img-fluid" alt=""/>
+                <div class="col-lg-6 col-md-12  pb-5 how-img">
+                    <img src="img/<?php echo $img[3];?>" class="col-lg-9 col-md-12 img-fluid pt-3 " alt=""/>
                     
-                    <h4 class="subheading col-9 "><?php echo $header[3];?></h4>
-                    <p class="text-muted col-9"><?php echo $learned  ;?></p>
+                    <h4 class="subheading col-lg-9 col-md-12 pt-3"><?php echo $header[3];?></h4>
+                    <p class="text-muted col-lg-9 col-md-12"><?php echo $learned  ;?></p>
                 </div>
             </div>
             <div class="row mt-5 pb-5 sect" style="border-bottom:solid 2px black;" >
-                <div class="col-md-6 how-img">
-                     <img src="img/<?php echo $img[4];?>" class="col-9 img-fluid" alt=""/>
+            <div><h1 class="topHead col-lg-6 col-md-12  align-items-center  head"> <h1 class="topHead ">What I Would Change</h1></div>
+                <div class="col-lg-6 col-md-12  how-img">
+                     <img src="img/<?php echo $img[4];?>" class="col-lg-9 col-md-12 img-fluid pt-3" alt=""/>
                      
-                     <h4 class="subheading col-9"><?php echo $header[5];?> </h4>
-                     <p class="text-muted col-9"><?php echo $changes ;?></p>
+                     <h4 class="subheading col-lg-9 col-md-12 pt-3"><?php echo $header[4];?> </h4>
+                     <p class="text-muted col-lg-9 col-md-12 "><?php echo $changes ;?></p>
                 </div>
-                <div class="col-md-6 align-items-center head">
-                  <h1>What I Would change</h1>
+                <div class="col-lg-6 col-md-12  align-items-center head">
+                  <h1 class="bottomHead">What I Would Change</h1>
+                </div>
+     
+        </div>
+        <div class="row pb-5 mt-5 sect" style="border-bottom:solid 2px black;">
+                <div class="col-lg-6 col-md-12  align-items-center  head">
+                 <h1>Final Thoughts</h1>
+                </div>
+                <div class="col-lg-6 col-md-12  how-img" >
+          
+                    <img src="img/<?php echo $img[5];?>" class="col-9 img-fluid pt-3" alt=""/>
+                    <h4 class=" col-lg-6 col-md-12  pt-3"><?php echo $header[5];?></h4>
+                          
+                                <p class="text-muted col-lg-9 col-md-12  "><?php echo $goals;?></p>
                 </div>
             </div>
-        </div>
- 
         </div>
         </main>
 
@@ -219,11 +242,11 @@ $headerResult = $db->query($img);
           <!-- Navbar Menu -->
           <div id="navbarcollapse" class="collapse navbar-collapse justify-content-center">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link">Home</a>
+              <li class="nav-item"><a href="index.php" class="nav-link">Home</a>
               </li>
-              <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
+              <li class="nav-item"><a href="blog.php" class="nav-link ">Blog</a>
               </li>
-              <li class="nav-item"><a href="about.html" class="nav-link ">Contact</a>
+              <li class="nav-item"><a href="about.php" class="nav-link ">Contact</a>
               </li>
             </ul>
           </div>

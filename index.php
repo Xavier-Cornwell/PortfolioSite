@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,6 +33,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body >
+  <?php require_once('inc/mysqli_connect.php'); ?>
     <header class="header header2" style="background: url(img/hello.jpg); background-size: cover; background-position: center center;"> 
       <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg text-white">
@@ -81,11 +83,11 @@
           
         </div><a href="about.html" class="btn btn-primary btn-round-lg btn-lg continue link-scroll" style="font-size:61;"><b>Contact Me</b></a>
      
-      <div class="row justify-content-end text-left"><div class="col-xl-5 mt-3 slogan offset-xl-2 ">Life gets boring if you arn't <span>trying to learn something new.</span></div> </div> </div>
+      <div class="row justify-content-end text-left slogan"><div class="col-xl-5 mt-3 slogan offset-xl-2 ">Life gets boring if you arn't <span>trying to learn something new.</span></div> </div> </div>
     </section>
     </header>
-    <main class="all" style="z-index: -1;background: url(img/learn.png); background-size: cover; background-repeat: repeat;">
-    <div class="bigcontain" style="padding-bottom:200px;" >
+    <main class="all" style="z-index: -1;background: url(img/learn.png); background-size: cover; background-repeat: repeat;padding-bottom:200px;">
+    <div class="bigcontain" style="" >
     <!-- Divider Section-->
     <section style="background-color:#27272D;" class="divider mt-5 pt-2 pb-3">
       <div class="container  d-flex justify-content-center">
@@ -100,15 +102,17 @@
     <!-- Latest Posts -->
     <section class="latest-posts mt-5"> 
       <div class="container"> 
+      <div class="row d-flex justify-content-between" >
       <?php 
   
   //blog post query
   $sql = "SELECT *
-  FROM blog LIMIT 3";
+  FROM blog  LIMIT 3";
 $result = $db->query($sql);  
 
+
 while ($row = $result->fetch_assoc()) {
-$row = $result->fetch_assoc()) 
+
 $id= $row['id'];
 $summary=$row['summary'];
 $date= $row['date'];
@@ -118,45 +122,52 @@ $date= $row['date'];
      //img query
      $img = "SELECT *
       FROM img
-       WHERE blog_id = $id LIMIT 1"; 
+       WHERE blog_id = '$id' LIMIT 1"; 
       
       //header query
       $header = "SELECT *
       FROM header
-       WHERE blog_id = $id LIMIT 1";         
+       WHERE blog_id = '$id' LIMIT 1";         
                 
 
                 
 $imgResult = $db->query($img); 
-$headerResult = $db->query($img); 
+$headerResult = $db->query($header); 
 $row = $imgResult->fetch_assoc();
  $img=$row['img_path'];
 
- $row = $headerResult->fetch_assoc()
+ $row = $headerResult->fetch_assoc();
  $header=$row['header'];
 
 ?>
-        <div class="row d-flex justify-content-between" >
+        
           <div class="card pt-3 col-lg-3 mt-4" style="background-color:#27272D;   color:white;">
-            <div class="post-thumbnail"><a href="post.html"><img src="img/<?php echo $img;?>" alt="..." class="img-fluid"></a></div>
+            <div class="post-thumbnail"><a href="post.php?blog=<?php echo $id;?>"><img src="img/<?php echo $img;?>" alt="..." class="img-fluid"></a></div>
             <div class="post-details">
               <div class="post-meta d-flex justify-content-between">
                 <div class="date"><?php echo $date;?></div>
 
-              </div><a href="post.html">
+              </div><a href="post.php?blog=<?php echo $id;?>">
                 <h3 class="h4" style="color:white;" ><?php echo $header;?></h3></a>
               <p><?php echo $summary;?></p>
             </div>
           </div>
          
          
-        </div>
-      </div>
-    </section>
-  </div>
+        
+   
+
 <?php } ?>
+
+</div>
+
+  </div>
+ 
+  </section>
+  </div>
+  </main>
     <!-- Page Footer-->
-    <footer class="main-footer mt-5"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
+    <footer class="main-footer 0"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
       <nav class="navbar navbar-expand-lg">
         <div class="search-area">
           <div class="search-area-inner d-flex align-items-center justify-content-center">
@@ -181,7 +192,7 @@ $row = $imgResult->fetch_assoc();
             <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
           </div>
           <!-- Navbar Menu -->
-          <div id="navbarcollapse" class="collapse navbar-collapse">
+          <div  class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
               </li>
@@ -209,7 +220,7 @@ $row = $imgResult->fetch_assoc();
         </div>
       </div>
     </footer>
-  </main>
+
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

@@ -1,4 +1,6 @@
 /* your styles go here */
+
+
 main{
     padding:0px;
     padding-top:100px;
@@ -152,4 +154,41 @@ section .hero .continue{
 }
 html {
     scroll-behavior: smooth;
+  }
+
+.topHead{
+display:none;
+
+}
+
+.bottomHead{
+display:block;
+}
+
+
+  @media (min-height: 300px) and  (max-width:981px){
+
+
+.topHead{
+display:block;
+
+}
+
+.bottomHead{
+display:none;
+}
+
+
+h1{
+    font-size:50px;
+}
+
+.hero p{
+    font-size:30px;
+}
+
+.slogan{
+    font-size:30px;
+}
+
   }
