@@ -81,7 +81,7 @@
   
     //blog post query
     $sql = "SELECT *
-    FROM blog";
+    FROM blog  ORDER BY date DESC";
 $result = $db->query($sql);  
 
 while ($row = $result->fetch_assoc()) {

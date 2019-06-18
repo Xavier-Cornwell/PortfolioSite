@@ -107,7 +107,7 @@
   
   //blog post query
   $sql = "SELECT *
-  FROM blog  LIMIT 3";
+  FROM blog  ORDER BY date DESC LIMIT 3";
 $result = $db->query($sql);  
 
 
