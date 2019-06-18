@@ -75,7 +75,7 @@
    
     <!-- Hero Section-->
     <section class="hero">
-      <div class="container pt-5 ">
+      <div class="container pt-0 ">
         <div class="row">
           <div class="col-xl-6 mb-5">
             <h1>Xavier <span>Cornwell</span></h1><p>Cats, Coffee and,<br><span>Code</span></p>
@@ -167,10 +167,10 @@ $row = $imgResult->fetch_assoc();
   </div>
   </main>
     <!-- Page Footer-->
-    <footer class="main-footer 0"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
+    <footer class="main-footer mt-0"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
       <nav class="navbar navbar-expand-lg">
         <div class="search-area">
-          <div class="search-area-inner d-flex align-items-center justify-content-center">
+          <div class="search-area-inner">
             <div class="close-btn"><i class="icon-close"></i></div>
             <div class="row d-flex justify-content-center">
               <div class="col-md-8">
@@ -186,17 +186,17 @@ $row = $imgResult->fetch_assoc();
         </div>
         <div class="container">
           <!-- Navbar Brand -->
-          <div class="navbar-header d-flex align-items-center justify-content-between">
+          <div class="navbar-header ">
             <!-- Navbar Brand -->
             <!-- Toggle Button-->
             <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
           </div>
           <!-- Navbar Menu -->
-          <div  class="collapse navbar-collapse">
+          <div id="navbarcollapse" class="collapse navbar-collapse justify-content-center">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
+              <li class="nav-item"><a href="index.php" class="nav-link  ">Home</a>
               </li>
-              <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
+              <li class="nav-item"><a href="blog.php" class="nav-link ">Blog</a>
               </li>
               <li class="nav-item"><a href="about.html" class="nav-link ">Contact</a>
               </li>
@@ -204,7 +204,6 @@ $row = $imgResult->fetch_assoc();
           </div>
         </div>
       </nav>
-   
       <div class="copyrights">
         <div class="container">
           <div class="row">
