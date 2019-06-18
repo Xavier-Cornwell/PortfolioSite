@@ -110,15 +110,24 @@ $headerResult = $db->query($img);
         </nav>
      
         <div class="ml-5 d-flex h-50 align-items-center" style="font-size:82; color:white;"><h1>Diversity in <span>Engineering</span></h1></div>
+
     </header>
-    <div class="container justify-content-center">
+    <div class="arrow d-flex justify-content-center mt-5 " style="display:inline-block; color:white;">
+        <a href="#scroll" class=""><i style="font-size:50px; width:100%;" class="fa fa-arrow-down "></i></a>
+      </div>
+
+    <div class="container d-flex justify-content-center">
+    
+
       <div class="row">
         <!-- Latest Posts -->
-        <main class="post blog-post col-lg-12"> 
+        <main class="post blog-post col-lg-12"   id="scroll"> 
+   
+          
           <div class="container">
 
                  <div class="how-section1">
-            <div class="row pb-5 mt-5 d-flex" style="border-bottom:solid 2px black;">
+            <div class="row pb-5 mt-5 sect " style="border-bottom:solid 2px black;">
                 <div class="col-md-6 how-img">
                     <img src="img/<?php echo $img[0];?>" class=" col-9 img-fluid" alt=""/>
                     <h4 class="col-9"><?php echo $header[0];?></h4>
@@ -129,7 +138,7 @@ $headerResult = $db->query($img);
                      <h1>The Project</h1>      
                 </div>
             </div>
-            <div class="row pb-5 mt-5" style="border-bottom:solid 2px black;">
+            <div class="row pb-5 mt-5 sect" style="border-bottom:solid 2px black;">
                 <div class="col-md-6 align-items-center  head">
                  <h1>Goals</h1>
                 </div>
@@ -141,7 +150,7 @@ $headerResult = $db->query($img);
                                 <p class="text-muted col-9 "><?php echo $goals;?></p>
                 </div>
             </div>
-            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;" >
+            <div class="row mt-5 pb-5 sect" style="border-bottom:solid 2px black;" >
                 <div class="col-md-6 how-img">
                      <img src="img/<?php echo $img[2];?>" class="col-9 img-fluid" alt=""/>
                      
@@ -152,7 +161,7 @@ $headerResult = $db->query($img);
                   <h1>Challenges</h1>
                 </div>
             </div>
-            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;">
+            <div class="row mt-5 pb-5 sect" style="border-bottom:solid 2px black;">
                 <div class="col-md-6 align-items-center head">
                    <h1>Lessons Learned</h1>
                 </div>
@@ -163,7 +172,7 @@ $headerResult = $db->query($img);
                     <p class="text-muted col-9"><?php echo $learned  ;?></p>
                 </div>
             </div>
-            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;" >
+            <div class="row mt-5 pb-5 sect" style="border-bottom:solid 2px black;" >
                 <div class="col-md-6 how-img">
                      <img src="img/<?php echo $img[4];?>" class="col-9 img-fluid" alt=""/>
                      
@@ -175,6 +184,7 @@ $headerResult = $db->query($img);
                 </div>
             </div>
         </div>
+ 
         </div>
         </main>
 
@@ -241,5 +251,7 @@ $headerResult = $db->query($img);
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/fadein.js"></script>
+
   </body>
 </html>
