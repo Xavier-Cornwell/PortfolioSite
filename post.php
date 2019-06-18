@@ -184,7 +184,7 @@ $result = $db->query($sql);
                 </div>
             </div>
             <div class="row mt-5 pb-5 sect" style="border-bottom:solid 2px black;" >
-            <div><h1 class="topHead col-lg-6 col-md-12  align-items-center  head"> <h1 class="topHead ">What I Would Change</h1></div>
+            <div><h1 class="topHead col-lg-6 col-md-12  align-items-center  "> What I Would Change</h1></div>
                 <div class="col-lg-6 col-md-12  how-img">
                      <img src="img/<?php echo $img[4];?>" class="col-lg-9 col-md-12 img-fluid pt-3" alt=""/>
                      
