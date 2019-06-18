@@ -27,11 +27,12 @@
 
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet"> 
+
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  <body style="background-color:#E3E7EA;">
+  <body>
     <header class="header header3"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center; height:500px;">
       <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg">
@@ -40,16 +41,53 @@
               <div class="close-btn"><i class="icon-close"></i></div>
               <div class="row d-flex justify-content-center">
                 <div class="col-md-8">
-                  <form action="#">
-                    <div class="form-group">
-                      <input type="search" name="search" id="search" placeholder="What are you looking for?">
-                      <button type="submit" class="submit"><i class="icon-search-1"></i></button>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
           </div>
+          <?php 
+  
+  $id=$_GET['id'];
+    //blog post query
+    $sql = "SELECT *
+    FROM blog
+     WHERE id = $id";
+
+       //img query
+       $img = "SELECT *
+        FROM img
+         WHERE blog_id = $id LIMIT 5"; 
+        
+        //header query
+        $header = "SELECT *
+        FROM header
+         WHERE blog_id = $id LIMIT 5";         
+                  
+$result = $db->query($sql);  
+                  
+$imgResult = $db->query($img); 
+$headerResult = $db->query($img); 
+
+   $row = $result->fetch_assoc()) 
+   $project=$row['project'];
+   $goals = $row['goals'];
+   $challenge= $row['challenge'];
+   $learned =$row['learned'];
+   $changes =  $row['changes'];
+   
+   $img[];
+   $header[];
+   while ($row = $imgResult->fetch_assoc()) {
+          
+    array_push($img, $row['img_path']);
+   }
+   while ($row = $headerResult->fetch_assoc()) {
+          
+    array_push($header, $row['header']);
+   }
+?>
+
+
           <div class="container">
             <!-- Navbar Brand -->
             <div class="navbar-header d-flex align-items-center justify-content-between">
@@ -60,9 +98,9 @@
             <!-- Navbar Menu -->
             <div id="navbarcollapse" class="collapse navbar-collapse">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
+                <li class="nav-item"><a href="index.php" class="nav-link ">Home</a>
                 </li>
-                <li class="nav-item"><a href="blog.html" class="nav-link ">Portfolio</a>
+                <li class="nav-item"><a href="blog.php" class="nav-link ">Portfolio</a>
                 </li>
                 <li class="nav-item"><a href="about.html" class="nav-link ">About</a>
                 </li>
@@ -71,43 +109,78 @@
           </div>
         </nav>
      
-        <div class="ml-5 d-flex h-50 align-items-center" style="font-size:82; color:white;"><h1>My <span>Projects.</span></h1></div>
+        <div class="ml-5 d-flex h-50 align-items-center" style="font-size:82; color:white;"><h1>Diversity in <span>Engineering</span></h1></div>
     </header>
-    <main class="all" style="z-index: -1;background: url(img/learn.png); background-size: cover; background-repeat: repeat;">
-    <section class="latest-posts mt-5"> 
-        <div class="container"> 
+    <div class="container justify-content-center">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="post blog-post col-lg-12"> 
+          <div class="container">
 
-          <div class="row ">
-            <div class="card pt-3 col-md-6 text-white  mt-5" style="background-color:#27272D; margin:0 auto; ">
-              <div class="post-thumbnail" ><a href="post.html"><img src="img/plant.jpg" alt="..." class="img-fluid" style="max-height: 800px;"></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-                </div><a href="post.html">
-                  <h3 class="h4 text-white">Ways to remember your important ideas</h3></a>
-                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur architecto nobis quidem enim debitis ad, iusto, perferendis error molestias quia obcaecati ipsum in explicabo ea. Ea explicabo doloremque accusantium itaque.</p>
-              </div>
+                 <div class="how-section1">
+            <div class="row pb-5 mt-5 d-flex" style="border-bottom:solid 2px black;">
+                <div class="col-md-6 how-img">
+                    <img src="img/<?php echo $img[0];?>" class=" col-9 img-fluid" alt=""/>
+                    <h4 class="col-9"><?php echo $header[0];?></h4>
+                    <p class="text-muted col-9"><?php echo $project;?></p>
+                </div>
+                <div class="col-md-6 align-items-center head">
+                  
+                     <h1>The Project</h1>      
+                </div>
             </div>
-          </div>
-          <div class="row ">
-            <div class="card pt-3 col-md-6 mt-5 text-white" style="background-color:#27272D; margin:0 auto;">
-              <div class="post-thumbnail"><a href="post.html"><img src="img/plant.jpg" alt="..." class="img-fluid" style="max-height: 800px;" ></a></div>
-              <div class="post-details">
-                <div class="post-meta d-flex justify-content-between">
-                  <div class="date">20 May | 2016</div>
-    
-                </div><a href="post.html">
-                  <h3 class="h4 text-white">Diversity in Engineering: Effect on Questions</h3></a>
-                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nostrum obcaecati recusandae mollitia! Maiores, architecto. Magni delectus possimus placeat, culpa tenetur aperiam assumenda repellendus optio nostrum, esse a temporibus nulla.</p>
-              </div>
-            </div>
-          </div>
-           
+            <div class="row pb-5 mt-5" style="border-bottom:solid 2px black;">
+                <div class="col-md-6 align-items-center  head">
+                 <h1>Goals</h1>
+                </div>
+                <div class="col-md-6 how-img" >
           
+                    <img src="img/<?php echo $img[1];?>" class="col-9 img-fluid" alt=""/>
+                    <h4 class="col-9"><?php echo $header[1];?></h4>
+                          
+                                <p class="text-muted col-9 "><?php echo $goals;?></p>
+                </div>
+            </div>
+            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;" >
+                <div class="col-md-6 how-img">
+                     <img src="img/<?php echo $img[2];?>" class="col-9 img-fluid" alt=""/>
+                     
+                     <h4 class="subheading col-9"><?php echo $header[2];?></h4>
+                     <p class="text-muted col-9"><?php echo $challenge;?></p>
+                </div>
+                <div class="col-md-6 align-items-center head">
+                  <h1>Challenges</h1>
+                </div>
+            </div>
+            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;">
+                <div class="col-md-6 align-items-center head">
+                   <h1>Lessons Learned</h1>
+                </div>
+                <div class="col-md-6 pb-5 how-img">
+                    <img src="img/<?php echo $img[3];?>" class="col-9 img-fluid" alt=""/>
+                    
+                    <h4 class="subheading col-9 "><?php echo $header[3];?></h4>
+                    <p class="text-muted col-9"><?php echo $learned  ;?></p>
+                </div>
+            </div>
+            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;" >
+                <div class="col-md-6 how-img">
+                     <img src="img/<?php echo $img[4];?>" class="col-9 img-fluid" alt=""/>
+                     
+                     <h4 class="subheading col-9"><?php echo $header[5];?> </h4>
+                     <p class="text-muted col-9"><?php echo $changes ;?></p>
+                </div>
+                <div class="col-md-6 align-items-center head">
+                  <h1>What I Would change</h1>
+                </div>
+            </div>
         </div>
-      </section>
-    
-         
+        </div>
+        </main>
+
+      </div>
+    </div>
+    <!-- Page Footer-->
     <!-- Page Footer-->
     <footer class="main-footer mt-5"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
       <nav class="navbar navbar-expand-lg">
@@ -136,7 +209,7 @@
           <!-- Navbar Menu -->
           <div id="navbarcollapse" class="collapse navbar-collapse justify-content-center">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link  ">Home</a>
+              <li class="nav-item"><a href="index.html" class="nav-link">Home</a>
               </li>
               <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
               </li>
@@ -161,7 +234,6 @@
         </div>
       </div>
     </footer>
-  </main>
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

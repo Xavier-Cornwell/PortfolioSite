@@ -27,12 +27,11 @@
 
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet"> 
-
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  <body>
+  <body style="background-color:#E3E7EA;">
     <header class="header header3"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center; height:500px;">
       <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg">
@@ -61,9 +60,9 @@
             <!-- Navbar Menu -->
             <div id="navbarcollapse" class="collapse navbar-collapse">
               <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
+                <li class="nav-item"><a href="index.php" class="nav-link ">Home</a>
                 </li>
-                <li class="nav-item"><a href="blog.html" class="nav-link ">Portfolio</a>
+                <li class="nav-item"><a href="blog.php" class="nav-link ">Portfolio</a>
                 </li>
                 <li class="nav-item"><a href="about.html" class="nav-link ">About</a>
                 </li>
@@ -72,88 +71,62 @@
           </div>
         </nav>
      
-        <div class="ml-5 d-flex h-50 align-items-center" style="font-size:82; color:white;"><h1>Diversity in <span>Engineering</span></h1></div>
+        <div class="ml-5 d-flex h-50 align-items-center" style="font-size:82; color:white;"><h1>My <span>Projects.</span></h1></div>
     </header>
-    <div class="container justify-content-center">
-      <div class="row">
-        <!-- Latest Posts -->
-        <main class="post blog-post col-lg-12"> 
-          <div class="container">
+    <main class="all" style="z-index: -1;background: url(img/learn.png); background-size: cover; background-repeat: repeat;">
+    <section class="latest-posts mt-5"> 
+        <div class="container"> 
+        <?php 
+  
+    //blog post query
+    $sql = "SELECT *
+    FROM blog";
+$result = $db->query($sql);  
 
-                 <div class="how-section1">
-            <div class="row pb-5 mt-5 d-flex" style="border-bottom:solid 2px black;">
-                <div class="col-md-6 how-img">
-                    <img src="img/blog-post-1.jpeg" class=" col-9 img-fluid" alt=""/>
-                    <h4 class="col-9">run and grow your own freelance business.</h4>
-                    <p class="text-muted col-9">Freedom to work on ideal projects. On GetLance, you run your own business and choose your own clients and projects. Just complete your profile and we’ll highlight ideal jobs. Also search projects, and respond to client invitations.
-                                        Wide variety and high pay. Clients are now posting jobs in hundreds of skill categories, paying top price for great work.
-                                        More and more success. The greater the success you have on projects, the more likely you are to get hired by clients that use GetLance.</p>
-                </div>
-                <div class="col-md-6 align-items-center head">
+while ($row = $result->fetch_assoc()) {
+$row = $result->fetch_assoc()) 
+$id= $row['id'];
+$summary=$row['project'];
+$date= $row['date'];
+
+
+
+       //img query
+       $img = "SELECT *
+        FROM img
+         WHERE blog_id = $id LIMIT 1"; 
+        
+        //header query
+        $header = "SELECT *
+        FROM header
+         WHERE blog_id = $id LIMIT 1";         
                   
-                     <h1>The Project</h1>      
-                </div>
-            </div>
-            <div class="row pb-5 mt-5" style="border-bottom:solid 2px black;">
-                <div class="col-md-6 align-items-center  head">
-                 <h1>Goals</h1>
-                </div>
-                <div class="col-md-6 how-img" >
-          
-                    <img src="img/blog-post-4.jpeg" class="col-9 img-fluid" alt=""/>
-                    <h4 class="col-9">Get hired quickly</h4>
-                          
-                                <p class="text-muted col-9 ">Streamlined hiring. GetLance’s sophisticated algorithms highlight projects you’re a great fit for.
-                                    Top Rated and Rising Talent programs. Enjoy higher visibility with the added status of prestigious programs.
-                                    Do substantial work with top clients. GetLance pricing encourages freelancers to use GetLance for repeat relationships with their clients.</p>
-                </div>
-            </div>
-            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;" >
-                <div class="col-md-6 how-img">
-                     <img src="img/blog-2.jpg" class="col-9 img-fluid" alt=""/>
-                     
-                     <h4 class="subheading col-9">Each project includes an online workspace shared by you and your client, allowing you to:</h4>
-                     <p class="text-muted col-9">Send and receive files. Deliver digital assets in a secure environment.
-                         Share feedback in real time. Use GetLance Messages to communicate via text, chat, or video.
-                         Use our mobile app. Many features can be accessed on your mobile phone when on the go.</p>
-                </div>
-                <div class="col-md-6 align-items-center head">
-                  <h1>Challenges</h1>
-                </div>
-            </div>
-            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;">
-                <div class="col-md-6 align-items-center head">
-                   <h1>Lessons Learned</h1>
-                </div>
-                <div class="col-md-6 pb-5 how-img">
-                    <img src="img/gallery-2.jpg" class="col-9 img-fluid" alt=""/>
-                    
-                    <h4 class="subheading col-9 ">helping ensure that you get paid for all work </h4>
-                    <p class="text-muted col-9">All invoices and payments happen through GetLance. Count on a simple and streamlined process.
-                        Hourly and fixed-price projects. For hourly work, submit timesheets through GetLance. For fixed-price jobs, set milestones and funds are released via GetLance escrow features.
-                        Multiple payment options. Choose a payment method that works best for you, from direct deposit or PayPal to wire transfer and more.</p>
-                </div>
-            </div>
-            <div class="row mt-5 pb-5" style="border-bottom:solid 2px black;" >
-                <div class="col-md-6 how-img">
-                     <img src="img/blog-2.jpg" class="col-9 img-fluid" alt=""/>
-                     
-                     <h4 class="subheading col-9"> you have the freedom and flexibility to control when, where, and how you work. </h4>
-                     <p class="text-muted col-9">Send and receive files. Deliver digital assets in a secure environment.
-                         Share feedback in real time. Use GetLance Messages to communicate via text, chat, or video.
-                         Use our mobile app. Many features can be accessed on your mobile phone when on the go.</p>
-                </div>
-                <div class="col-md-6 align-items-center head">
-                  <h1>What I Would change</h1>
-                </div>
-            </div>
-        </div>
-        </div>
-        </main>
 
-      </div>
-    </div>
-    <!-- Page Footer-->
+                  
+$imgResult = $db->query($img); 
+$headerResult = $db->query($img); 
+$row = $imgResult->fetch_assoc();
+   $img=$row['img_path'];
+
+   $row = $headerResult->fetch_assoc()
+   $header=$row['header'];
+
+?>
+          <div class="row ">
+            <div class="card pt-3 col-md-6 text-white  mt-5" style="background-color:#27272D; margin:0 auto; ">
+              <div class="post-thumbnail" ><a href="post.html"><img src="img/<?php echo $img;?>" alt="..." class="img-fluid" style="max-height: 800px;"></a></div>
+              <div class="post-details">
+                <div class="post-meta d-flex justify-content-between">
+                  <div class="date"><?php echo $date;?></div>
+                </div><a href="post.html">
+                  <h3 class="h4 text-white"><?php echo $header;?></h3></a>
+                <p class="text-white"><?php echo $summary;?></p>
+              </div>
+            </div>
+          </div>
+      </section>
+    
+  <?php} ?>    
     <!-- Page Footer-->
     <footer class="main-footer mt-5"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
       <nav class="navbar navbar-expand-lg">
@@ -182,7 +155,7 @@
           <!-- Navbar Menu -->
           <div id="navbarcollapse" class="collapse navbar-collapse justify-content-center">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link">Home</a>
+              <li class="nav-item"><a href="index.html" class="nav-link  ">Home</a>
               </li>
               <li class="nav-item"><a href="blog.html" class="nav-link ">Blog</a>
               </li>
@@ -207,6 +180,7 @@
         </div>
       </div>
     </footer>
+  </main>
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

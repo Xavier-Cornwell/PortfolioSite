@@ -60,9 +60,9 @@
           <!-- Navbar Menu -->
           <div id="navbarcollapse" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
+              <li class="nav-item"><a href="index.php" class="nav-link ">Home</a>
               </li>
-              <li class="nav-item"><a href="blog.html" class="nav-link ">Portfolio</a>
+              <li class="nav-item"><a href="blog.php" class="nav-link ">Portfolio</a>
               </li>
               <li class="nav-item"><a href="about.html" class="nav-link ">About</a>
               </li>
@@ -100,39 +100,52 @@
     <!-- Latest Posts -->
     <section class="latest-posts mt-5"> 
       <div class="container"> 
+      <?php 
+  
+  //blog post query
+  $sql = "SELECT *
+  FROM blog LIMIT 3";
+$result = $db->query($sql);  
+
+while ($row = $result->fetch_assoc()) {
+$row = $result->fetch_assoc()) 
+$id= $row['id'];
+$summary=$row['summary'];
+$date= $row['date'];
+
+
+
+     //img query
+     $img = "SELECT *
+      FROM img
+       WHERE blog_id = $id LIMIT 1"; 
+      
+      //header query
+      $header = "SELECT *
+      FROM header
+       WHERE blog_id = $id LIMIT 1";         
+                
+
+                
+$imgResult = $db->query($img); 
+$headerResult = $db->query($img); 
+$row = $imgResult->fetch_assoc();
+ $img=$row['img_path'];
+
+ $row = $headerResult->fetch_assoc()
+ $header=$row['header'];
+
+?>
         <div class="row d-flex justify-content-between" >
           <div class="card pt-3 col-lg-3 mt-4" style="background-color:#27272D;   color:white;">
-            <div class="post-thumbnail"><a href="post.html"><img src="img/plant.jpg" alt="..." class="img-fluid"></a></div>
+            <div class="post-thumbnail"><a href="post.html"><img src="img/<?php echo $img;?>" alt="..." class="img-fluid"></a></div>
             <div class="post-details">
               <div class="post-meta d-flex justify-content-between">
-                <div class="date">20 May | 2016</div>
+                <div class="date"><?php echo $date;?></div>
 
               </div><a href="post.html">
-                <h3 class="h4" style="color:white;" >Ways to remember your important ideas</h3></a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-          <div class="card pt-3 col-lg-3 mt-4" style="background-color:#27272D;   color:white;">
-            <div class="post-thumbnail"><a href="post.html"><img src="img/plant.jpg" alt="..." class="img-fluid"></a></div>
-            <div class="post-details">
-              <div class="post-meta d-flex justify-content-between">
-                <div class="date">20 May | 2016</div>
-  
-              </div><a href="post.html">
-                <h3 class="h4" style="color:white;">Diversity in Engineering: Effect on Questions</h3></a>
-              <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-
-          <div class="card pt-3 col-lg-3 mt-4" style="background-color:#27272D;   color:white;">
-            <div class="post-thumbnail"><a href="post.html"><img src="img/plant.jpg" alt="..." class="img-fluid"></a></div>
-            <div class="post-details">
-              <div class="post-meta d-flex justify-content-between">
-                <div class="date">20 May | 2016</div>
-  
-              </div><a href="post.html">
-                <h3 class="h4"style="color:white;" >Diversity in Engineering: Effect on Questions</h3></a>
-              <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <h3 class="h4" style="color:white;" ><?php echo $header;?></h3></a>
+              <p><?php echo $summary;?></p>
             </div>
           </div>
          
@@ -141,7 +154,7 @@
       </div>
     </section>
   </div>
-
+<?php } ?>
     <!-- Page Footer-->
     <footer class="main-footer mt-5"  style="background: url(img/hello.jpg); background-size: cover; background-position: center center">
       <nav class="navbar navbar-expand-lg">
